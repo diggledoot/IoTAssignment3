@@ -24,6 +24,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 <hr/>  
 <!-------------------- Pi 1 -------------------->
 
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -171,6 +172,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                         $('#HighLight_1').html(res.HighLight);
                         $('#LowLight_1').html(res.LowLight);
 
+                        if(res.AvgTemp >= 37){
+                          $('#aircon_1').html("Aircon is on!");
+                        }else{
+                          $('#aircon_1').html("Aircon is off!");
+                        }
+                        
+                        console.log(res.AvgLight);
+                        if(res.AvgLight <= 150){
+                          $('#curtain_1').html("Curtains are drawn open!");
+                        }else{
+                          $('#curtain_1').html("Curtains are drawn closed!");
+                        }
 					
                         setInterval(() => {
                             // console.log("Analysis called!");
@@ -182,37 +195,30 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                                     if (res == "No data") {
                                         alert("No data returned!");
                                     } else {
-										$('#AvgTemp_1').html(parseFloat(res.AvgTemp));
-										$('#AvgLight_1').html(parseFloat(res.AvgLight));
-										$('#HighTemp_1').html(res.HighTemp);
-										$('#LowTemp_1').html(res.LowTemp);
-										$('#HighLight_1').html(res.HighLight);
-										$('#LowLight_1').html(res.LowLight);
+                  										$('#AvgTemp_1').html(parseFloat(res.AvgTemp));
+                  										$('#AvgLight_1').html(parseFloat(res.AvgLight));
+                  										$('#HighTemp_1').html(res.HighTemp);
+                  										$('#LowTemp_1').html(res.LowTemp);
+                  										$('#HighLight_1').html(res.HighLight);
+                  										$('#LowLight_1').html(res.LowLight);
 
+                                      if(res.AvgTemp >= 37){
+                                        $('#aircon_1').html("Aircon is on!");
+                                      }else{
+                                        $('#aircon_1').html("Aircon is off!");
+                                      }
+                                      
+                                      if(res.AvgLight <=150){
+                                        $('#curtain_1').html("Curtains are drawn open!");
+                                      }else{
+                                        $('#curtain_1').html("Curtains are drawn closed!");
+                                      }
                                     }
 									
                                 }
                             })
                         }, 2000);
-						
-						var state_air;
-						if((document.getElementById("AvgTemp_1").value)==37){
-							state_air = "Turn on Aircon";
-						}else{
-							state_air = "Turn off Aircon";
-						}
-						document.getElementById("aircon_1").innerHTML = state_air;
-						
-						var state_cur;
-						if((document.getElementById("AvgLight_1").value)<=150){
-							state_cur = "Turn on Curtain";
-						}else{
-							state_cur = "Turn off Curtain";
-						}
-						document.getElementById("curtain_1").innerHTML = state_cur;
-
                     }
-					
                 }
             });
         })
@@ -360,12 +366,24 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                     if (res == "No data") {
                         alert("No data returned!");
                     } else {
-					$('#AvgTemp_2').html(parseFloat(res.AvgTemp));
-					$('#AvgLight_2').html(parseFloat(res.AvgLight));
-					$('#HighTemp_2').html(res.HighTemp);
-					$('#LowTemp_2').html(res.LowTemp);
-					$('#HighLight_2').html(res.HighLight);
-					$('#LowLight_2').html(res.LowLight);
+            					$('#AvgTemp_2').html(parseFloat(res.AvgTemp));
+            					$('#AvgLight_2').html(parseFloat(res.AvgLight));
+            					$('#HighTemp_2').html(res.HighTemp);
+            					$('#LowTemp_2').html(res.LowTemp);
+            					$('#HighLight_2').html(res.HighLight);
+            					$('#LowLight_2').html(res.LowLight);
+                                                          
+                      if(res.AvgTemp >= 37){
+                        $('#aircon_2').html("Aircon is on!");
+                      }else{
+                        $('#aircon_2').html("Aircon is off!");
+                      }
+                      
+                      if(res.AvgLight <= 150){
+                        $('#curtain_2').html("Curtains are drawn open!");
+                      }else{
+                        $('#curtain_2').html("Curtains are drawn closed!");
+                      }
 
                         setInterval(() => {
                             // console.log("Analysis called!");
@@ -377,33 +395,27 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                                     if (res == "No data") {
                                         alert("No data returned!");
                                     } else {
-										$('#AvgTemp_2').html(parseFloat(res.AvgTemp));
-										$('#AvgLight_2').html(parseFloat(res.AvgLight));
-										$('#HighTemp_2').html(res.HighTemp);
-										$('#LowTemp_2').html(res.LowTemp);
-										$('#HighLight_2').html(res.HighLight);
-										$('#LowLight_2').html(res.LowLight);
-
+                  										$('#AvgTemp_2').html(parseFloat(res.AvgTemp));
+                  										$('#AvgLight_2').html(parseFloat(res.AvgLight));
+                  										$('#HighTemp_2').html(res.HighTemp);
+                  										$('#LowTemp_2').html(res.LowTemp);
+                  										$('#HighLight_2').html(res.HighLight);
+                  										$('#LowLight_2').html(res.LowLight);
+                                                                                                                                                                                     if(res.AvgTemp >= 37){
+                                        $('#aircon_2').html("Aircon is on!");
+                                      }else{
+                                        $('#aircon_2').html("Aircon is off!");
+                                      }
+                                      
+                                      if(res.AvgLight <= 150){
+                                        $('#curtain_2').html("Curtains are drawn open!");
+                                      }else{
+                                        $('#curtain_2').html("Curtains are drawn closed!");
+                                      }
                                     }
                                 }
                             })
                         }, 2000);
-						
-						var state_air;
-						if((document.getElementById("AvgTemp_2").value)==37){
-							state_air = "Turn on Aircon";
-						}else{
-							state_air = "Turn off Aircon";
-						}
-						document.getElementById("aircon_2").innerHTML = state_air;
-						
-						var state_cur;
-						if((document.getElementById("AvgLight_2").value)<=150){
-							state_cur = "Turn on Curtain";
-						}else{
-							state_cur = "Turn off Curtain";
-						}
-						document.getElementById("curtain_2").innerHTML = state_cur;
                     }
                 }
             });
@@ -553,12 +565,24 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                     if (res == "No data") {
                         alert("No data returned!");
                     } else {
-					$('#AvgTemp_3').html(parseFloat(res.AvgTemp));
-					$('#AvgLight_3').html(parseFloat(res.AvgLight));
-					$('#HighTemp_3').html(res.HighTemp);
-					$('#LowTemp_3').html(res.LowTemp);
-					$('#HighLight_3').html(res.HighLight);
-					$('#LowLight_3').html(res.LowLight);
+              					$('#AvgTemp_3').html(parseFloat(res.AvgTemp));
+              					$('#AvgLight_3').html(parseFloat(res.AvgLight));
+              					$('#HighTemp_3').html(res.HighTemp);
+              					$('#LowTemp_3').html(res.LowTemp);
+              					$('#HighLight_3').html(res.HighLight);
+              					$('#LowLight_3').html(res.LowLight);
+                                                            
+                        if(res.AvgTemp >= 37){
+                          $('#aircon_3').html("Aircon is on!");
+                        }else{
+                          $('#aircon_3').html("Aircon is off!");
+                        }
+                        
+                        if(res.AvgLight <= 150){
+                          $('#curtain_3').html("Curtains are drawn open!");
+                        }else{
+                          $('#curtain_3').html("Curtains are drawn closed!");
+                        }
 
                         setInterval(() => {
                             // console.log("Analysis called!");
@@ -570,33 +594,27 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                                     if (res == "No data") {
                                         alert("No data returned!");
                                     } else {
-										$('#AvgTemp_3').html(parseFloat(res.AvgTemp));
-										$('#AvgLight_3').html(parseFloat(res.AvgLight));
-										$('#HighTemp_3').html(res.HighTemp);
-										$('#LowTemp_3').html(res.LowTemp);
-										$('#HighLight_3').html(res.HighLight);
-										$('#LowLight_3').html(res.LowLight);
-
+                  										$('#AvgTemp_3').html(parseFloat(res.AvgTemp));
+                  										$('#AvgLight_3').html(parseFloat(res.AvgLight));
+                  										$('#HighTemp_3').html(res.HighTemp);
+                  										$('#LowTemp_3').html(res.LowTemp);
+                  										$('#HighLight_3').html(res.HighLight);
+                  										$('#LowLight_3').html(res.LowLight);
+                                                                                                                                                                                     if(res.AvgTemp >= 37){
+                                        $('#aircon_3').html("Aircon is on!");
+                                      }else{
+                                        $('#aircon_3').html("Aircon is off!");
+                                      }
+                                      
+                                      if(res.AvgLight <= 150){
+                                        $('#curtain_3').html("Curtains are drawn open!");
+                                      }else{
+                                        $('#curtain_3').html("Curtains are drawn closed!");
+                                      }
                                     }
                                 }
                             })
                         }, 2000);
-						
-						var state_air;
-						if((document.getElementById("AvgTemp_3").value)==37){
-							state_air = "Turn on Aircon";
-						}else{
-							state_air = "Turn off Aircon";
-						}
-						document.getElementById("aircon_3").innerHTML = state_air;
-						
-						var state_cur;
-						if((document.getElementById("AvgLight_3").value)<=150){
-							state_cur = "Turn on Curtain";
-						}else{
-							state_cur = "Turn off Curtain";
-						}
-						document.getElementById("curtain_3").innerHTML = state_cur;
                     }
                 }
             });
